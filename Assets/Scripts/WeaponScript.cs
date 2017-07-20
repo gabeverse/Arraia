@@ -22,14 +22,14 @@ public class WeaponScript : MonoBehaviour {
 	}
     public void Attack(Vector2 direction)
     {
+        direction = direction * 2;
         if(cooldown<=0)
         {
             cooldown = shootrate;
             var shotTransform = Instantiate(ShotPrefab) as Transform;
             shotTransform.position = transform.position;
             TiroScript script = shotTransform.GetComponent<TiroScript>();
-            script.setDirection(direction,"Player", "Enemy");
-
+            script.setDirection(direction);
         }
     }
 }
